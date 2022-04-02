@@ -71,11 +71,6 @@ Vagrant.configure("2") do |config|
    config.vm.provision "shell", inline: <<-SHELL
      apt-get update
      apt-get install -y wget gcc
-     # golang install
-     wget https://golang.org/dl/go1.17.1.linux-amd64.tar.gz
-     sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.1.linux-amd64.tar.gz
-     echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
-     go version
   #  apt-get install -y apache2
    SHELL
   config.vm.provision :docker, run: 'always'
